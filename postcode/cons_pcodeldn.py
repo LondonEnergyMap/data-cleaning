@@ -56,7 +56,7 @@ def ldn_pcode(file):
     df = df1.append(df2, ignore_index=True)
 
     # rename columns
-    df.columns = ['pcode', 'gas', 'nmeter', 'avg', 'mid']
+    df.columns = ['pcode', 'cons', 'nmeter', 'avg', 'mid']
 
     return df
 
