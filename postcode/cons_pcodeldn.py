@@ -58,6 +58,9 @@ def ldn_pcode(file):
     # rename columns
     df.columns = ['pcode', 'cons', 'nmeter', 'avg', 'mid']
 
+    # drop any duplicate entries
+    df.drop_duplicates(inplace=True)
+
     return df
 
 
