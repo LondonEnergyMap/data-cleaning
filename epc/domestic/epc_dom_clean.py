@@ -15,7 +15,7 @@ def main():
     # create a list of filename that corresponds to how the epcs certificates are stored
 
     # replace borough column spaces with -
-    ldnboroughs['la']=ldnboroughs.localauthority.replace(' ','-',regex=True)
+    ldnboroughs['la'] = ldnboroughs.localauthority.replace(' ','-',regex=True)
 
     # make list of filenames from borough codes and names from lookup table
     boroughs = ldnboroughs.code + '-' + ldnboroughs.la
@@ -32,17 +32,13 @@ def main():
     filename = boroughs[0]
     filepath = path_start + filename + path_end
     df = pd.read_csv(filepath)
-    
+
     # rename column headers using function defined at end of script
-    df, df_dict = rename_epcdom(df)
-
-
-    
+    df, df_dict = rename_epcdom(df)  
     print(df.memory_usage(index=True).sum())
 
     # reduce dataframe size by changing types of columns using function defined at end of script
     df = changetypes(df, df_dict)
-
 
     print(df.memory_usage(index=True).sum())
 
@@ -66,7 +62,6 @@ def main():
         print(temp.shape)
         print(temp.head(2))
     # ---------------------
-
 
     print(df.shape)
     df.to_csv('epc_domestic_ldn.csv')
