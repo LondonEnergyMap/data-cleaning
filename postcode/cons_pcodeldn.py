@@ -66,7 +66,7 @@ def ldn_pcode(file):
 
 # create gas and electricity london only postcode estimates
 dfgas = ldn_pcode(gasfile)
-dfgas.to_csv('gascons_pcodeldn.csv')
+dfgas.to_csv('gascons_pcodeldn.csv', index=False)
 
 dfelec = ldn_pcode(elecfile)
-dfelec.to_csv('eleccons_pcodeldn.csv')
+dfelec.to_csv('eleccons_pcodeldn.csv', index=False)
