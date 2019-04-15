@@ -7,7 +7,7 @@ def main():
 
     # read file to dataframe, and keep only boroughs in London
     df_lookup = pd.read_csv(boroughspath)
-    ldnboroughs_temp = df_lookup[df_lookup.london==1]
+    ldnboroughs_temp = df_lookup[df_lookup.london == 1]
     ldnboroughs = ldnboroughs_temp.copy()
     nboroughs = len(ldnboroughs)
 
@@ -15,7 +15,7 @@ def main():
     # create a list of filename that corresponds to how the epcs certificates are stored
 
     # replace borough column spaces with -
-    ldnboroughs['la'] = ldnboroughs.localauthority.replace(' ','-',regex=True)
+    ldnboroughs['la'] = ldnboroughs.localauthority.replace(' ', '-', regex=True)
 
     # make list of filenames from borough codes and names from lookup table
     boroughs = ldnboroughs.code + '-' + ldnboroughs.la
